@@ -35,23 +35,23 @@ namespace DiccionariodeDatos
         {
             directorio = Environment.CurrentDirectory + @"\Archivos";
             GridEntidad.AutoResizeColumns();
-            GridEntidad.ColumnCount = 6;
-            GridEntidad.Columns[0].Name = "IDEntidad";
-            GridEntidad.Columns[1].Name = "Nombre";
+            GridEntidad.ColumnCount = 1;
+            GridEntidad.Columns[0].Name = "Nombre";
+            /*GridEntidad.Columns[0].Name = "IDEntidad";
             GridEntidad.Columns[2].Name = "Dir Entidad";
             GridEntidad.Columns[3].Name = "Dir Atributo";
             GridEntidad.Columns[4].Name = "Dir Datos";
-            GridEntidad.Columns[5].Name = "Dir Siguiente Entidad";
+            GridEntidad.Columns[5].Name = "Dir Siguiente Entidad";*/
             GridAtributo.AutoResizeColumns();
-            GridAtributo.ColumnCount = 8;
+            GridAtributo.ColumnCount = 4;
+            GridAtributo.Columns[0].Name = "Nombre Atributo";
+            GridAtributo.Columns[1].Name = "Tipo Dato";
+            GridAtributo.Columns[2].Name = "Longitud";
+            GridAtributo.Columns[3].Name = "Tipo Indice";
+            /*GridAtributo.Columns[4].Name = "Dir Atributo";
             GridAtributo.Columns[0].Name = "ID Atributo";
-            GridAtributo.Columns[1].Name = "Nombre Atributo";
-            GridAtributo.Columns[2].Name = "Tipo Dato";
-            GridAtributo.Columns[3].Name = "Longitud";
-            GridAtributo.Columns[4].Name = "Dir Atributo";
-            GridAtributo.Columns[5].Name = "Tipo Indice";
             GridAtributo.Columns[6].Name = "Dir Indice";
-            GridAtributo.Columns[7].Name = "Dir Siguiente Atributo";
+            GridAtributo.Columns[7].Name = "Dir Siguiente Atributo";*/
             Entidades = new List<Entidad>();
 
         }
@@ -61,7 +61,6 @@ namespace DiccionariodeDatos
             GridEntidad.Rows.Clear();
             GridAtributo.Rows.Clear();
             EntidadesList.Items.Clear();
-            headText.Text = "-1";
             entidadSelect = EntidadSeleccionada = "";
 
 
@@ -72,7 +71,6 @@ namespace DiccionariodeDatos
                 nombreArchivo = saveFileDialog.FileName;
                 archivo = new FileStream(nombreArchivo, FileMode.Create);
                 Archivo.GuardaCabecera( archivo, Cabeza);
-                headText.Text = Cabeza.ToString();
                 archivo.Close();
             }
         }
@@ -92,7 +90,6 @@ namespace DiccionariodeDatos
             nombreArchivo = open.FileName;
             Text = "Diccionario de Datos | " + nombreArchivo;
             Cabeza = Archivo.LeeCabecera(nombreArchivo);
-            headText.Text = Cabeza.ToString();
             Entidades = Archivo.Leer(Cabeza, nombreArchivo,directorio);
             ActualizaDataEntidades();
         }
@@ -200,7 +197,6 @@ namespace DiccionariodeDatos
                     Archivo.ActualizaCabecera(archivo, nombreArchivo, Entidades[0].dirEntidad);
                     ActualizaEntidades();
                     ActualizaDataEntidades();
-                    headText.Text = Entidades[0].dirEntidad.ToString();
                 }
                 else
                 {
@@ -269,7 +265,6 @@ namespace DiccionariodeDatos
             Entidades = OrdenaNombre(Entidades);
             Archivo.DireccionamientoEntidades(nombreArchivo, Entidades);
             Archivo.ActualizaCabecera(archivo,nombreArchivo,Entidades[0].dirEntidad);
-            headText.Text = Entidades[0].dirEntidad.ToString();
             ActualizaDataEntidades();
         }
         private byte[] AsignarID()
@@ -309,7 +304,14 @@ namespace DiccionariodeDatos
 
             foreach (Entidad entidad in Entidades)
             {
-                GridEntidad.Rows.Add(ConvertirID(entidad.id), ConvertirNombre(entidad.nombre), entidad.dirEntidad, entidad.dirAtributo, entidad.dirDatos, entidad.dirSigEntidad);
+                GridEntidad.Rows.Add(
+                    /*ConvertirID(entidad.id),*/
+                    ConvertirNombre(entidad.nombre)
+                    /*entidad.dirEntidad,
+                    entidad.dirAtributo,
+                    entidad.dirDatos
+                    entidad.dirSigEntidad*/
+                );
                 EntidadesList.Items.Add(ConvertirNombre(entidad.nombre));
             }
         }
@@ -332,7 +334,7 @@ namespace DiccionariodeDatos
             //Buscamos el indice de la entidad a borrar.
             for (int i = 0; i < Entidades.Count; i++)
             {
-                if(Entidades[i].NombreEntidad() == entidad)
+                if (Entidades[i].NombreEntidad() == NombreEntidad(entidad))
                 {
                     entidadseleccionada = i;
                     break;
@@ -360,10 +362,13 @@ namespace DiccionariodeDatos
             {
                 if (Entidades[entidadseleccionada].dirEntidad == Entidades[Entidades.Count-1].dirEntidad)//serciorarnos que es la ultima entidad.
                 {
-                    Entidades[entidadseleccionada-1].dirSigEntidad = -1;
-                    Archivo.ModificaEntidad(Entidades[entidadseleccionada-1], nombreArchivo);
-                    Entidades.Remove(Entidades[entidadseleccionada]);
-                    borrado = true;
+                    if (Entidades.Count != 1)
+                    {
+                        Entidades[entidadseleccionada - 1].dirSigEntidad = -1;
+                        Archivo.ModificaEntidad(Entidades[entidadseleccionada - 1], nombreArchivo);
+                        Entidades.Remove(Entidades[entidadseleccionada]);
+                        borrado = true;
+                    }
                 }
             }
             //Condicional para ver si solo es un elemento en la lista.
@@ -372,14 +377,12 @@ namespace DiccionariodeDatos
                 Cabeza = -1;
                 Archivo.ActualizaCabecera(archivo, nombreArchivo, Cabeza);
                 Entidades.RemoveAt(0);
-                headText.Text = Cabeza.ToString();
             }
 
             if (borrado == false && Entidades.Count > 1 && Entidades[entidadseleccionada].dirEntidad == Entidades[0].dirEntidad)
             {
                 Cabeza = Entidades[0].dirSigEntidad;
                 Archivo.ActualizaCabecera(archivo, nombreArchivo, Cabeza);
-                headText.Text = Cabeza.ToString();
                 Entidades.RemoveAt(0);
             }
             ActualizaDataEntidades();
@@ -616,6 +619,17 @@ namespace DiccionariodeDatos
             }
         }
 
-        
+        public string NombreEntidad(string nombre)
+        {
+            string regresada = "";
+
+            for (int i = 0; i < nombre.Length; i++)
+            {
+                if (nombre[i] != '\0')
+                { regresada += nombre[i]; }
+            }
+            return regresada;
+        }
+
     }
 }

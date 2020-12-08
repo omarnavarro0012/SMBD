@@ -43,8 +43,6 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.Cerrar = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.headText = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.nuevaentidad = new System.Windows.Forms.TextBox();
             this.EliminarEntidad = new System.Windows.Forms.Button();
             this.ModificarEntidad = new System.Windows.Forms.Button();
@@ -75,7 +73,7 @@
             this.archivoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(957, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1000, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -152,38 +150,20 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.headText);
-            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.nuevaentidad);
             this.groupBox1.Controls.Add(this.EliminarEntidad);
-            this.groupBox1.Controls.Add(this.ModificarEntidad);
             this.groupBox1.Controls.Add(this.AgregarEntidad);
-            this.groupBox1.Location = new System.Drawing.Point(44, 43);
+            this.groupBox1.Controls.Add(this.ModificarEntidad);
+            this.groupBox1.Location = new System.Drawing.Point(12, 27);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(373, 206);
+            this.groupBox1.Size = new System.Drawing.Size(460, 65);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Entidad";
             // 
-            // headText
-            // 
-            this.headText.Location = new System.Drawing.Point(290, 90);
-            this.headText.Name = "headText";
-            this.headText.Size = new System.Drawing.Size(42, 20);
-            this.headText.TabIndex = 5;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(241, 93);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Cabeza";
-            // 
             // nuevaentidad
             // 
-            this.nuevaentidad.Location = new System.Drawing.Point(224, 36);
+            this.nuevaentidad.Location = new System.Drawing.Point(107, 22);
             this.nuevaentidad.Name = "nuevaentidad";
             this.nuevaentidad.Size = new System.Drawing.Size(136, 20);
             this.nuevaentidad.TabIndex = 3;
@@ -191,9 +171,9 @@
             // 
             // EliminarEntidad
             // 
-            this.EliminarEntidad.Location = new System.Drawing.Point(8, 138);
+            this.EliminarEntidad.Location = new System.Drawing.Point(356, 22);
             this.EliminarEntidad.Name = "EliminarEntidad";
-            this.EliminarEntidad.Size = new System.Drawing.Size(208, 53);
+            this.EliminarEntidad.Size = new System.Drawing.Size(94, 24);
             this.EliminarEntidad.TabIndex = 2;
             this.EliminarEntidad.Text = "Eliminar Entidad";
             this.EliminarEntidad.UseVisualStyleBackColor = true;
@@ -201,9 +181,9 @@
             // 
             // ModificarEntidad
             // 
-            this.ModificarEntidad.Location = new System.Drawing.Point(6, 83);
+            this.ModificarEntidad.Location = new System.Drawing.Point(249, 19);
             this.ModificarEntidad.Name = "ModificarEntidad";
-            this.ModificarEntidad.Size = new System.Drawing.Size(210, 49);
+            this.ModificarEntidad.Size = new System.Drawing.Size(101, 31);
             this.ModificarEntidad.TabIndex = 1;
             this.ModificarEntidad.Text = "Modificar Entidad";
             this.ModificarEntidad.UseVisualStyleBackColor = true;
@@ -213,7 +193,7 @@
             // 
             this.AgregarEntidad.Location = new System.Drawing.Point(6, 19);
             this.AgregarEntidad.Name = "AgregarEntidad";
-            this.AgregarEntidad.Size = new System.Drawing.Size(212, 52);
+            this.AgregarEntidad.Size = new System.Drawing.Size(95, 32);
             this.AgregarEntidad.TabIndex = 0;
             this.AgregarEntidad.Text = " Agregar Entidad";
             this.AgregarEntidad.UseVisualStyleBackColor = true;
@@ -226,9 +206,9 @@
             this.groupBox2.Controls.Add(this.EliminarAtributo);
             this.groupBox2.Controls.Add(this.ModificarAtributo);
             this.groupBox2.Controls.Add(this.AgregarAtributo);
-            this.groupBox2.Location = new System.Drawing.Point(517, 49);
+            this.groupBox2.Location = new System.Drawing.Point(478, 27);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(237, 206);
+            this.groupBox2.Size = new System.Drawing.Size(516, 91);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Atributo";
@@ -236,7 +216,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(78, 16);
+            this.label1.Location = new System.Drawing.Point(7, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 13);
             this.label1.TabIndex = 6;
@@ -245,7 +225,7 @@
             // EntidadesList
             // 
             this.EntidadesList.FormattingEnabled = true;
-            this.EntidadesList.Location = new System.Drawing.Point(44, 36);
+            this.EntidadesList.Location = new System.Drawing.Point(67, 19);
             this.EntidadesList.Name = "EntidadesList";
             this.EntidadesList.Size = new System.Drawing.Size(134, 21);
             this.EntidadesList.TabIndex = 7;
@@ -254,9 +234,9 @@
             // 
             // EliminarAtributo
             // 
-            this.EliminarAtributo.Location = new System.Drawing.Point(10, 161);
+            this.EliminarAtributo.Location = new System.Drawing.Point(412, 17);
             this.EliminarAtributo.Name = "EliminarAtributo";
-            this.EliminarAtributo.Size = new System.Drawing.Size(223, 39);
+            this.EliminarAtributo.Size = new System.Drawing.Size(96, 22);
             this.EliminarAtributo.TabIndex = 2;
             this.EliminarAtributo.Text = "Eliminar Atributo";
             this.EliminarAtributo.UseVisualStyleBackColor = true;
@@ -264,9 +244,9 @@
             // 
             // ModificarAtributo
             // 
-            this.ModificarAtributo.Location = new System.Drawing.Point(9, 114);
+            this.ModificarAtributo.Location = new System.Drawing.Point(309, 16);
             this.ModificarAtributo.Name = "ModificarAtributo";
-            this.ModificarAtributo.Size = new System.Drawing.Size(224, 41);
+            this.ModificarAtributo.Size = new System.Drawing.Size(97, 24);
             this.ModificarAtributo.TabIndex = 1;
             this.ModificarAtributo.Text = "Modificar Atributo";
             this.ModificarAtributo.UseVisualStyleBackColor = true;
@@ -274,9 +254,9 @@
             // 
             // AgregarAtributo
             // 
-            this.AgregarAtributo.Location = new System.Drawing.Point(9, 67);
+            this.AgregarAtributo.Location = new System.Drawing.Point(207, 16);
             this.AgregarAtributo.Name = "AgregarAtributo";
-            this.AgregarAtributo.Size = new System.Drawing.Size(223, 41);
+            this.AgregarAtributo.Size = new System.Drawing.Size(96, 24);
             this.AgregarAtributo.TabIndex = 0;
             this.AgregarAtributo.Text = "Agregar Atributo";
             this.AgregarAtributo.UseVisualStyleBackColor = true;
@@ -286,25 +266,25 @@
             // 
             this.GridEntidad.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.GridEntidad.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridEntidad.Location = new System.Drawing.Point(18, 261);
+            this.GridEntidad.Location = new System.Drawing.Point(12, 98);
             this.GridEntidad.Name = "GridEntidad";
-            this.GridEntidad.Size = new System.Drawing.Size(927, 143);
+            this.GridEntidad.Size = new System.Drawing.Size(325, 271);
             this.GridEntidad.TabIndex = 4;
             // 
             // GridAtributo
             // 
             this.GridAtributo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.GridAtributo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridAtributo.Location = new System.Drawing.Point(18, 410);
+            this.GridAtributo.Location = new System.Drawing.Point(478, 124);
             this.GridAtributo.Name = "GridAtributo";
-            this.GridAtributo.Size = new System.Drawing.Size(927, 122);
+            this.GridAtributo.Size = new System.Drawing.Size(508, 269);
             this.GridAtributo.TabIndex = 5;
             // 
             // AgRegi
             // 
-            this.AgRegi.Location = new System.Drawing.Point(776, 116);
+            this.AgRegi.Location = new System.Drawing.Point(12, 375);
             this.AgRegi.Name = "AgRegi";
-            this.AgRegi.Size = new System.Drawing.Size(116, 59);
+            this.AgRegi.Size = new System.Drawing.Size(325, 25);
             this.AgRegi.TabIndex = 6;
             this.AgRegi.Text = "Agregar Registros";
             this.AgRegi.UseVisualStyleBackColor = true;
@@ -314,7 +294,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(957, 544);
+            this.ClientSize = new System.Drawing.Size(1000, 414);
             this.Controls.Add(this.AgRegi);
             this.Controls.Add(this.GridAtributo);
             this.Controls.Add(this.GridEntidad);
@@ -365,8 +345,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox EntidadesList;
         private System.Windows.Forms.TextBox nuevaentidad;
-        private System.Windows.Forms.TextBox headText;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button AgRegi;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem guardarToolStripMenuItem;
