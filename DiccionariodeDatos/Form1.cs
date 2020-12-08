@@ -19,7 +19,6 @@ namespace DiccionariodeDatos
         FileStream archivo;
         private string directorio;
         List<Entidad> Entidades;
-        //long head = 0;
         string nombreArchivo;
         long Cabeza = -1;
         static string EntidadSeleccionada="";
@@ -58,7 +57,6 @@ namespace DiccionariodeDatos
         }
         private void Nuevo_Click(object sender, EventArgs e)
         {
-            //FileStream archivo;
             Entidades = new List<Entidad>();
             GridEntidad.Rows.Clear();
             GridAtributo.Rows.Clear();
@@ -97,8 +95,8 @@ namespace DiccionariodeDatos
             headText.Text = Cabeza.ToString();
             Entidades = Archivo.Leer(Cabeza, nombreArchivo,directorio);
             ActualizaDataEntidades();
-            //ActualizaDataAtributos();
         }
+
         private void Guardar_Click_1(object sender, EventArgs e)//guardar como
         {
             SaveFileDialog save = new SaveFileDialog()
@@ -121,9 +119,6 @@ namespace DiccionariodeDatos
         }
         private void Guardar_Click(object sender, EventArgs e)
         {
-            //string ArchivoNombre;
-            //FileStream archivo;
-
             SaveFileDialog save = new SaveFileDialog()
             {
                 Title = "GuardarComo...",
@@ -133,8 +128,8 @@ namespace DiccionariodeDatos
                 InitialDirectory = directorio,
                 AddExtension = true
             };
-            //save.ShowDialog();
             nombreArchivo = save.FileName;
+
         }
         private void Cerrar_Click(object sender, EventArgs e)
         {
@@ -145,9 +140,7 @@ namespace DiccionariodeDatos
         #region Archivo
         public void EscribirArchivo(string Nombrearchivo)
         {
-            //Nombrearchivo = Nombrearchivo+".dd";
-            BinaryWriter bw;
-            
+            BinaryWriter bw;   
             FileStream archivo = new FileStream(Nombrearchivo, FileMode.OpenOrCreate, FileAccess.Write);
             bw = new BinaryWriter(archivo);
             foreach (Entidad entidad in Entidades)
@@ -195,8 +188,6 @@ namespace DiccionariodeDatos
             {
                 char[] nombre = new char[35];
                 nombre = nuevaentidad.Text.ToCharArray();
-
-                //FileStream archivo = new FileStream(nombreArchivo, FileMode.Open);
                 long direccion = Archivo.EncuentraDireccion(nombreArchivo,archivo);
 
                 if (ExisteEntidad(nombre) == false && nuevaentidad.Text != "")
@@ -210,7 +201,6 @@ namespace DiccionariodeDatos
                     ActualizaEntidades();
                     ActualizaDataEntidades();
                     headText.Text = Entidades[0].dirEntidad.ToString();
-                    //EntidadesList.Items.Add(ConvertirNombre(nueva.nombre));
                 }
                 else
                 {
@@ -280,7 +270,6 @@ namespace DiccionariodeDatos
             Archivo.DireccionamientoEntidades(nombreArchivo, Entidades);
             Archivo.ActualizaCabecera(archivo,nombreArchivo,Entidades[0].dirEntidad);
             headText.Text = Entidades[0].dirEntidad.ToString();
-            //Entidades = OrdenaNombre(Entidades);
             ActualizaDataEntidades();
         }
         private byte[] AsignarID()
@@ -309,7 +298,6 @@ namespace DiccionariodeDatos
         }
         public string ConvertirID(byte[] id)
         {
-            //string aux = "";
             string aux = String.Concat(id.Select(x => x.ToString("X2")).ToArray());
 
             return aux;
@@ -338,7 +326,6 @@ namespace DiccionariodeDatos
         }
         private void EliminaEntidad(string entidad)
         {
-            //FileStream archivo = new FileStream(nombreArchivo, FileMode.Open);
             bool borrado = false;
             int entidadseleccionada = 0;
 
@@ -405,7 +392,6 @@ namespace DiccionariodeDatos
         {
             FormAtributo nuevoatri = new FormAtributo();
             nuevoatri.ShowDialog();
-            //            entidadSelect = "";
             if (EntidadSeleccionada != "")
             {
                 entidadSelect = EntidadSeleccionada;
@@ -414,8 +400,6 @@ namespace DiccionariodeDatos
                 try
                 {
                     EntidadSeleccionada = EntidadesList.SelectedItem.ToString();
-                    //EntidadSeleccionada = EntidadSeleccionada.Trim();
-
                     for (int i = 0; i < EntidadSeleccionada.Length; i++)
                     {
                         if(EntidadSeleccionada[i] != '\0')
@@ -423,7 +407,6 @@ namespace DiccionariodeDatos
                             entidadSelect += EntidadSeleccionada[i];
                         }
                     }
-
                 }
                 catch (System.NullReferenceException) { }
                 EntidadSeleccionada = entidadSelect;
@@ -439,8 +422,6 @@ namespace DiccionariodeDatos
                         long dir = Archivo.EncuentraDireccion(nombreArchivo, archivo);
                         Atributo nuevo = new Atributo(AsignarID(), nuevoatri.nombreA, dir, nuevoatri.tipoDato, nuevoatri.longitud,
                             nuevoatri.tipoindice, -1, -1);
-                        //nuevo.id = (entidad.Atributos.Count + 1).ToString().ToCharArray();
-                        /*AsiganDirecciones();*/
                         if (entidad.dirAtributo == -1)
                         {
                             entidad.dirAtributo = nuevo.dirAtributo;
@@ -463,8 +444,6 @@ namespace DiccionariodeDatos
                             long dir = Archivo.EncuentraDireccion(nombreArchivo, archivo);
                             Atributo nuevo = new Atributo(AsignarID(), nuevoatri.nombreA, dir, nuevoatri.tipoDato, nuevoatri.longitud,
                                 nuevoatri.tipoindice, -1, -1);
-                            //nuevo.id = (entidad.Atributos.Count + 1).ToString().ToCharArray();
-                            /*AsiganDirecciones();*/
                             if (entidad.dirAtributo == -1)
                             {
                                 entidad.dirAtributo = nuevo.dirAtributo;
@@ -505,7 +484,6 @@ namespace DiccionariodeDatos
                 {
                     if (e.dirAtributo != -1)
                     {
-                        //e.Atributos = OrdenaNombre(e.Atributos);
                         foreach (Atributo a in e.Atributos)
                         {
                             GridAtributo.Rows.Add(ConvertirID(a.id), ConvertirNombre(a.nombre), a.tipodato, a.longitud, a.dirAtributo, a.tipoIndice, a.dirIndice, a.dirSigA);
@@ -595,7 +573,6 @@ namespace DiccionariodeDatos
                 entidad.Atributos.RemoveAt(0);
                 ActualizaDataEntidades();
             }
-            //cbAtributo.Text = "";
             ActualizaDataAtributos(entidad.NombreEntidad());
         }
         private void EntidadesList_SelectedIndexChanged(object sender, EventArgs e)
@@ -634,7 +611,9 @@ namespace DiccionariodeDatos
         private void nuevaentidad_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
-            { AgregarEntidad_Click(this, null); }
+            { 
+                AgregarEntidad_Click(this, null); 
+            }
         }
 
         
