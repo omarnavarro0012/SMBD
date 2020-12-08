@@ -393,7 +393,7 @@ namespace DiccionariodeDatos
         #region Atributos
         private void AgregarAtributo_Click(object sender, EventArgs e)
         {
-            FormAtributo nuevoatri = new FormAtributo();
+            FormAtributo nuevoatri = new FormAtributo(Entidades);
             nuevoatri.ShowDialog();
             if (EntidadSeleccionada != "")
             {
@@ -404,6 +404,7 @@ namespace DiccionariodeDatos
                 {
                     EntidadSeleccionada = EntidadesList.SelectedItem.ToString();
                     for (int i = 0; i < EntidadSeleccionada.Length; i++)
+
                     {
                         if(EntidadSeleccionada[i] != '\0')
                         {

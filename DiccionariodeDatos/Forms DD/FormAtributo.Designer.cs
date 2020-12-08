@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.entidadesCombo = new System.Windows.Forms.ComboBox();
+            this.FKlabel = new System.Windows.Forms.Label();
             this.Aceptar = new System.Windows.Forms.Button();
             this.comboTipodato = new System.Windows.Forms.ComboBox();
             this.tipoindiceCombo = new System.Windows.Forms.ComboBox();
@@ -44,6 +46,8 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.LightGray;
+            this.groupBox1.Controls.Add(this.entidadesCombo);
+            this.groupBox1.Controls.Add(this.FKlabel);
             this.groupBox1.Controls.Add(this.Aceptar);
             this.groupBox1.Controls.Add(this.comboTipodato);
             this.groupBox1.Controls.Add(this.tipoindiceCombo);
@@ -55,16 +59,35 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(14, 9);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(360, 235);
+            this.groupBox1.Size = new System.Drawing.Size(354, 276);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nuevo Atributo";
             // 
+            // entidadesCombo
+            // 
+            this.entidadesCombo.FormattingEnabled = true;
+            this.entidadesCombo.Location = new System.Drawing.Point(115, 209);
+            this.entidadesCombo.Name = "entidadesCombo";
+            this.entidadesCombo.Size = new System.Drawing.Size(217, 21);
+            this.entidadesCombo.TabIndex = 9;
+            this.entidadesCombo.Visible = false;
+            // 
+            // FKlabel
+            // 
+            this.FKlabel.AutoSize = true;
+            this.FKlabel.Location = new System.Drawing.Point(23, 212);
+            this.FKlabel.Name = "FKlabel";
+            this.FKlabel.Size = new System.Drawing.Size(76, 13);
+            this.FKlabel.TabIndex = 8;
+            this.FKlabel.Text = "Clave Foranea";
+            this.FKlabel.Visible = false;
+            // 
             // Aceptar
             // 
-            this.Aceptar.Location = new System.Drawing.Point(104, 192);
+            this.Aceptar.Location = new System.Drawing.Point(0, 251);
             this.Aceptar.Name = "Aceptar";
-            this.Aceptar.Size = new System.Drawing.Size(146, 37);
+            this.Aceptar.Size = new System.Drawing.Size(354, 25);
             this.Aceptar.TabIndex = 7;
             this.Aceptar.Text = "Aceptar";
             this.Aceptar.UseVisualStyleBackColor = true;
@@ -86,6 +109,7 @@
             this.tipoindiceCombo.Name = "tipoindiceCombo";
             this.tipoindiceCombo.Size = new System.Drawing.Size(217, 21);
             this.tipoindiceCombo.TabIndex = 5;
+            this.tipoindiceCombo.SelectedIndexChanged += new System.EventHandler(this.tipoindiceCombo_SelectedIndexChanged);
             // 
             // Longi
             // 
@@ -141,7 +165,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(386, 256);
+            this.ClientSize = new System.Drawing.Size(380, 297);
             this.Controls.Add(this.groupBox1);
             this.Name = "FormAtributo";
             this.Text = "FormAtributo";
@@ -165,5 +189,7 @@
         private System.Windows.Forms.ComboBox tipoindiceCombo;
         private System.Windows.Forms.Button Aceptar;
         private System.Windows.Forms.TextBox Longi;
+        private System.Windows.Forms.ComboBox entidadesCombo;
+        private System.Windows.Forms.Label FKlabel;
     }
 }

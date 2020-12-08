@@ -96,55 +96,55 @@
             // Nuevo
             // 
             this.Nuevo.Name = "Nuevo";
-            this.Nuevo.Size = new System.Drawing.Size(152, 22);
+            this.Nuevo.Size = new System.Drawing.Size(180, 22);
             this.Nuevo.Text = "Nuevo";
             this.Nuevo.Click += new System.EventHandler(this.Nuevo_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
             // 
             // Abrir
             // 
             this.Abrir.Name = "Abrir";
-            this.Abrir.Size = new System.Drawing.Size(152, 22);
+            this.Abrir.Size = new System.Drawing.Size(180, 22);
             this.Abrir.Text = "Abrir";
             this.Abrir.Click += new System.EventHandler(this.Abrir_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
             // 
             // guardarToolStripMenuItem
             // 
             this.guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
-            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.guardarToolStripMenuItem.Text = "Guardar";
             this.guardarToolStripMenuItem.Click += new System.EventHandler(this.Guardar_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // Guardar
             // 
             this.Guardar.Name = "Guardar";
-            this.Guardar.Size = new System.Drawing.Size(152, 22);
+            this.Guardar.Size = new System.Drawing.Size(180, 22);
             this.Guardar.Text = "Guardar Como";
             this.Guardar.Click += new System.EventHandler(this.Guardar_Click_1);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
             // 
             // Cerrar
             // 
             this.Cerrar.Name = "Cerrar";
-            this.Cerrar.Size = new System.Drawing.Size(152, 22);
+            this.Cerrar.Size = new System.Drawing.Size(180, 22);
             this.Cerrar.Text = "Cerrar";
             this.Cerrar.Click += new System.EventHandler(this.Cerrar_Click);
             // 
@@ -171,9 +171,9 @@
             // 
             // EliminarEntidad
             // 
-            this.EliminarEntidad.Location = new System.Drawing.Point(356, 22);
+            this.EliminarEntidad.Location = new System.Drawing.Point(356, 19);
             this.EliminarEntidad.Name = "EliminarEntidad";
-            this.EliminarEntidad.Size = new System.Drawing.Size(94, 24);
+            this.EliminarEntidad.Size = new System.Drawing.Size(94, 31);
             this.EliminarEntidad.TabIndex = 2;
             this.EliminarEntidad.Text = "Eliminar Entidad";
             this.EliminarEntidad.UseVisualStyleBackColor = true;
@@ -208,7 +208,7 @@
             this.groupBox2.Controls.Add(this.AgregarAtributo);
             this.groupBox2.Location = new System.Drawing.Point(478, 27);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(516, 91);
+            this.groupBox2.Size = new System.Drawing.Size(516, 65);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Atributo";
@@ -216,7 +216,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 22);
+            this.label1.Location = new System.Drawing.Point(5, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 13);
             this.label1.TabIndex = 6;
@@ -225,7 +225,7 @@
             // EntidadesList
             // 
             this.EntidadesList.FormattingEnabled = true;
-            this.EntidadesList.Location = new System.Drawing.Point(67, 19);
+            this.EntidadesList.Location = new System.Drawing.Point(65, 26);
             this.EntidadesList.Name = "EntidadesList";
             this.EntidadesList.Size = new System.Drawing.Size(134, 21);
             this.EntidadesList.TabIndex = 7;
@@ -234,7 +234,7 @@
             // 
             // EliminarAtributo
             // 
-            this.EliminarAtributo.Location = new System.Drawing.Point(412, 17);
+            this.EliminarAtributo.Location = new System.Drawing.Point(410, 24);
             this.EliminarAtributo.Name = "EliminarAtributo";
             this.EliminarAtributo.Size = new System.Drawing.Size(96, 22);
             this.EliminarAtributo.TabIndex = 2;
@@ -244,7 +244,7 @@
             // 
             // ModificarAtributo
             // 
-            this.ModificarAtributo.Location = new System.Drawing.Point(309, 16);
+            this.ModificarAtributo.Location = new System.Drawing.Point(307, 23);
             this.ModificarAtributo.Name = "ModificarAtributo";
             this.ModificarAtributo.Size = new System.Drawing.Size(97, 24);
             this.ModificarAtributo.TabIndex = 1;
@@ -254,7 +254,7 @@
             // 
             // AgregarAtributo
             // 
-            this.AgregarAtributo.Location = new System.Drawing.Point(207, 16);
+            this.AgregarAtributo.Location = new System.Drawing.Point(205, 23);
             this.AgregarAtributo.Name = "AgregarAtributo";
             this.AgregarAtributo.Size = new System.Drawing.Size(96, 24);
             this.AgregarAtributo.TabIndex = 0;
@@ -264,20 +264,26 @@
             // 
             // GridEntidad
             // 
-            this.GridEntidad.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.GridEntidad.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.GridEntidad.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridEntidad.Location = new System.Drawing.Point(12, 98);
             this.GridEntidad.Name = "GridEntidad";
-            this.GridEntidad.Size = new System.Drawing.Size(325, 271);
+            this.GridEntidad.ReadOnly = true;
+            this.GridEntidad.RowHeadersWidth = 4;
+            this.GridEntidad.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.GridEntidad.Size = new System.Drawing.Size(243, 271);
             this.GridEntidad.TabIndex = 4;
             // 
             // GridAtributo
             // 
             this.GridAtributo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.GridAtributo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridAtributo.Location = new System.Drawing.Point(478, 124);
+            this.GridAtributo.Location = new System.Drawing.Point(476, 98);
             this.GridAtributo.Name = "GridAtributo";
+            this.GridAtributo.ReadOnly = true;
+            this.GridAtributo.RowHeadersWidth = 4;
             this.GridAtributo.Size = new System.Drawing.Size(508, 269);
+            this.GridAtributo.StandardTab = true;
             this.GridAtributo.TabIndex = 5;
             // 
             // AgRegi

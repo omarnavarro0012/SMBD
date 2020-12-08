@@ -23,10 +23,13 @@ namespace DiccionariodeDatos
         public int tipoindice;
 
         public bool lleno;
+
+        private List<Entidad> Entidads;
         #endregion
 
-        public FormAtributo()
+        public FormAtributo(object Entidades)
         {
+            Entidads = (List<Entidad>)Entidades;
             InitializeComponent();
         }
 
@@ -35,11 +38,17 @@ namespace DiccionariodeDatos
             comboTipodato.Items.Add("Entero corto");
             comboTipodato.Items.Add("Cadena");
             tipoindiceCombo.Items.Add("0 Sin tipo");
-            tipoindiceCombo.Items.Add("1 Clave Busqueda");
-            tipoindiceCombo.Items.Add("2 Indice Primario");
-            tipoindiceCombo.Items.Add("3 Indice Secundario");
-            tipoindiceCombo.Items.Add("4 Arbol Primario");
-            tipoindiceCombo.Items.Add("5 Arbol Secundario");
+            tipoindiceCombo.Items.Add("1 Clave Primaria");
+            tipoindiceCombo.Items.Add("2 Clave Foranea");
+            tipoindiceCombo.Items.Add("3 Hash");
+            
+            foreach (Entidad enti in Entidads)
+            {
+                if (enti.ExistePK())
+                {
+                    entidadesCombo.Items.Add(enti.NombreEntidad());
+                }
+            }
         }
 
         private void Aceptar_Click(object sender, EventArgs e)
@@ -82,7 +91,6 @@ namespace DiccionariodeDatos
                 case 0:
                     tipoDato = 'E';
                     longitud = 4;
-                    //Longi.Enabled = false;
                     Longi.Text = longitud.ToString();
                     Longi.Enabled = false;
                     Longi.Refresh();
@@ -102,6 +110,20 @@ namespace DiccionariodeDatos
             if(e.CloseReason == CloseReason.UserClosing && lleno != true)
             {
                 lleno = false;
+            }
+        }
+
+        private void tipoindiceCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tipoindiceCombo.SelectedIndex == 2)
+            {
+                FKlabel.Visible = true;
+                entidadesCombo.Visible = true;
+            }
+            else
+            {
+                FKlabel.Visible = false;
+                entidadesCombo.Visible = false;
             }
         }
     }

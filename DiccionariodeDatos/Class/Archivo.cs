@@ -214,18 +214,6 @@ namespace DiccionariodeDatos
             archivo.Seek(dir, SeekOrigin.Begin);
 
             BinaryWriter bw = new BinaryWriter(archivo);
-            //byte[] bytes = new byte[5];
-            /*for (int i = 0; i < 5; i++)
-            {
-                try
-                {
-                    if (entidad.nombre[i] != '\0')
-                    {
-                        bytes[i] = Convert.ToByte(atributo.id[i]);
-                    }
-                }
-                catch (System.IndexOutOfRangeException) { bytes[i] = Convert.ToByte('\0'); }
-            }*/
             bw.Write(atributo.id);
             char[] chars = new char[35];
             for (int i = 0; i < 35; i++)
@@ -263,6 +251,7 @@ namespace DiccionariodeDatos
                 int longitud = reader.ReadInt32();
                 long dirAtr = reader.ReadInt64();
                 int tipoInd = reader.ReadInt32();
+
                 long dirInd = reader.ReadInt64();
                 long dirSigA = reader.ReadInt64();
                 Atributo a = new Atributo(id, nombre, dirAtr, tipoDato, longitud, tipoInd, dirInd, dirSigA);

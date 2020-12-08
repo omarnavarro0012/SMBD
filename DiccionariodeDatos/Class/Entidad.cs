@@ -208,5 +208,19 @@ namespace DiccionariodeDatos
         {
 
         }
+
+        public bool ExistePK()
+        {
+            bool existe = false;
+            foreach (Atributo atributo in Atributos)
+            {
+                if(atributo.tipodato == 1)
+                {
+                    existe = true;
+                    break;
+                }
+            }
+            return existe;
+        }
     }
 }
